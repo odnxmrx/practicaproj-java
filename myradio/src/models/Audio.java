@@ -4,7 +4,7 @@ public class Audio {
     private String title;
     private int totalPlays;
     private int totalLikes;
-    private int clasification;
+    private int classification;
 
     public void giveLike(){
         this.totalLikes++;
@@ -38,11 +38,11 @@ public class Audio {
         this.totalLikes = totalLikes;
     }
 
-    public int getClasification() {
-        return clasification;
+    public int getClassification() {
+        return classification;
     }
 
-    public void setClasification(int clasification) {
-        this.clasification = clasification;
+    public void setClassification(int classification) {
+        this.classification = classification;
     }
 }

@@ -19,4 +19,13 @@ public class Podcast extends Audio {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public int getClassification() {
+        if(getTotalPlays() >= 2000){
+            return 9;
+        } else {
+            return 3;
+        }
+    }
 }
