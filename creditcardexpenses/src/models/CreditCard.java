@@ -15,8 +15,13 @@ public class CreditCard {
         this.myPurchaseList = new ArrayList<>();
     }
 
-    // Metodo Bool que permite el ejecutar una compra
+    // Metodo Bool que permite el ejecutar una compra dependiendo el balance
     public boolean throwPurchase(Purchase purchase){
+        if(this.balance >= purchase.getPrice()){
+            this.balance -= purchase.getPrice();
+            this.myPurchaseList.add(purchase);
+            return true;
+        }
         return false;
     }
 
@@ -26,5 +31,9 @@ public class CreditCard {
 
     public double getBalance() {
         return balance;
+    }
+
+    public List<Purchase> getMyPurchaseList() {
+        return myPurchaseList;
     }
 }
