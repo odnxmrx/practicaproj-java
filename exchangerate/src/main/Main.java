@@ -1,28 +1,37 @@
 package main;
 
+import enums.CurrencyCode;
 import helpers.ExchangeRate;
 import models.ConversionRate;
 import models.ExchangeRateDto;
 
 import java.util.Scanner;
 
+import static helpers.Utils.displayAvailableCurrencies;
+import static helpers.Utils.displayWelcomeMessage;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("""
-        ********Welcome*******
-        *Exchange rating app!*
-        *********************
-        """);
 
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Please, enter a number");
+
         // New instance
         ExchangeRate rateFromApi = new ExchangeRate();
 
         try {
+            displayWelcomeMessage();
+            displayAvailableCurrencies();
             var newVal = Integer.parseInt(userInput.nextLine());
 
-            ExchangeRateDto objectApi = rateFromApi.searchRate(newVal);
+            var firstCurrency = CurrencyCode.values()[newVal];
+            displayAvailableCurrencies();
+            newVal = Integer.parseInt(userInput.nextLine());
+            var secondCurrency = CurrencyCode.values()[newVal];
+
+            System.out.println("Enter amount: ");
+            var amountVal = Integer.parseInt(userInput.nextLine());
+
+            ExchangeRateDto objectApi = rateFromApi.searchRate(firstCurrency, secondCurrency, amountVal);
 
             ConversionRate newConversion = new ConversionRate(objectApi);
             System.out.println(newConversion);
