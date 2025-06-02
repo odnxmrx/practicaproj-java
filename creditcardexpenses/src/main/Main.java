@@ -19,7 +19,7 @@ public class Main {
             // TODO validar el input, que sea lo que yo espero.
 
             System.out.println("Enter item description:");
-            lectura.nextLine(); // prevent consuming the newline (leftover newline afther the nextDouble)
+            lectura.nextLine(); // prevent consuming the newline (leftover newline after the nextDouble)
             String description = lectura.nextLine();
 
             System.out.println("Enter purchase value $:");
